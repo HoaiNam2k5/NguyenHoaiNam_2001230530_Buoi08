@@ -1,0 +1,63 @@
+﻿@model BTTL_03.Models.TBL_EMPLOYEE
+@{
+    ViewBag.Title = "Thêm Nhân Viên Mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-top:90px;" class="container">
+    <h2 class="text-primary fw-bold mb-4">Thêm Nhân Viên Mới</h2>
+
+    @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="card shadow p-4">
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Họ và tên</label>
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nhập tên nhân viên..." })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Giới tính</label>
+                    @Html.TextBoxFor(m => m.Gender, new { @class = "form-control", placeholder = "Nam / Nữ" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Thành phố</label>
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "Nhập thành phố..." })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Mã phòng ban (DeptId)</label>
+                    @Html.TextBoxFor(m => m.Deptld, new { @class = "form-control", placeholder = "Nhập mã phòng ban..." })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Ảnh Nhân Viên</label>
+                    <input type="file" name="fileAnh" class="form-control" accept="image/*" onchange="previewImage(event)" />
+                    <div class="mt-2">
+                        <img id="preview" src="#" alt="Xem trước ảnh" style="display:none; width:120px; border-radius:5px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 d-flex justify-content-end">
+                <a href="@Url.Action("DsNhanVien", "Home")" class="btn btn-secondary me-2">Quay lại</a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save"></i> Lưu Nhân Viên
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function previewImage(event) {
+            var output = document.getElementById('preview');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.style.display = 'block';
+        }
+    </script>
+}

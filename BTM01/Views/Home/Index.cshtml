@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BTM01.Models.THELOAITIN>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create", "Create","Home")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tentheloai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tentheloai)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDLoai }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDLoai }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDLoai })
+        </td>
+    </tr>
+}
+
+</table>

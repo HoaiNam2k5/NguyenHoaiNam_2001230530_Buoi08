@@ -1,0 +1,24 @@
+﻿@model BTTL_03.Models.TBL_EMPLOYEE
+@{
+    ViewBag.Title = "Xóa Nhân Viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+<div class="container mt-5">
+    <h2 class="text-danger fw-bold mb-4">Xóa Nhân Viên</h2>
+    <div class="card shadow p-4">
+        <p>Bạn có chắc chắn muốn xóa Nhân Viên Này<strong>@Model.Name</strong> không?</p>
+
+        <div class="mb-3">
+            <img src="@Url.Content(Model.ImgFace)" alt="Ảnh bìa" style="max-width:150px;" class="rounded shadow-sm" />
+        </div>
+
+        @using (Html.BeginForm("XoaStaff", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger me-2">Xóa</button>
+            <a href="@Url.Action("DsNhanVien")" class="btn btn-secondary">Hủy</a>
+        }
+    </div>
+</div>

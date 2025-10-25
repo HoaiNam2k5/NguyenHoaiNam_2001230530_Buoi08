@@ -1,0 +1,111 @@
+tem.Int32,System.Int32,System.String)">
+      <summary>Defines a validation test that tests the length of a string.</summary>
+      <returns>The validation test.</returns>
+      <param name="maxLength">The maximum length of the string.</param>
+      <param name="minLength">The minimum length of the string. The default is 0.</param>
+      <param name="errorMessage">The error message to display if validation fails.</param>
+    </member>
+    <member name="M:System.Web.WebPages.Validator.Url(System.String)">
+      <summary>Defines a validation test that tests whether a value is a well-formed URL.</summary>
+      <returns>The validation test.</returns>
+      <param name="errorMessage">The error message to display if validation fails.</param>
+    </member>
+    <member name="T:System.Web.WebPages.VirtualPathFactoryManager">
+      <summary>This type/member supports the .NET Framework infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.VirtualPathFactoryManager.CreateInstance(System.String)">
+      <summary>This type/member supports the .NET Framework infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.VirtualPathFactoryManager.Exists(System.String)">
+      <summary>This type/member supports the .NET Framework infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.VirtualPathFactoryManager.RegisterVirtualPathFactory(System.Web.WebPages.IVirtualPathFactory)">
+      <summary>This type/member supports the .NET Framework infrastructure and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="T:System.Web.WebPages.WebPage">
+      <summary>Represents an ASP.NET Razor page.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.WebPage.#ctor">
+      <summary>Called from a derived class to create a new instance that is based on the <see cref="T:System.Web.WebPages.WebPage" /> class.</summary>
+    </member>
+    <member name="P:System.Web.WebPages.WebPage.Context">
+      <summary>Gets or sets the <see cref="T:System.Web.HttpContextBase" /> object that is associated with a page.</summary>
+      <returns>The current context data.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.WebPage.ExecutePageHierarchy">
+      <summary>Executes the code in a set of dependent pages.</summary>
+    </member>
+    <member name="P:System.Web.WebPages.WebPage.Html">
+      <summary>Gets the <see cref="T:System.Web.WebPages.Html.HtmlHelper" /> object that is associated with a page.</summary>
+      <returns>An object that can render HTML form controls in a page.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.WebPage.InitializePage">
+      <summary>Initializes an object that inherits from the <see cref="T:System.Web.WebPages.WebPage" /> class.</summary>
+    </member>
+    <member name="P:System.Web.WebPages.WebPage.Model">
+      <summary>Gets the model that is associated with a page.</summary>
+      <returns>An object that represents a model that is associated with the view data for a page.</returns>
+    </member>
+    <member name="P:System.Web.WebPages.WebPage.ModelState">
+      <summary>Gets the state of the model that is associated with a page.</summary>
+      <returns>The state of the model.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.WebPage.RegisterPageExecutor(System.Web.WebPages.IWebPageRequestExecutor)">
+      <summary>Adds a class to a list of classes that handle page execution and that implement custom features for pages.</summary>
+      <param name="executor">The class to add.</param>
+    </member>
+    <member name="M:System.Web.WebPages.WebPage.RenderPage(System.String,System.Object[])">
+      <summary>Renders a content page.</summary>
+      <returns>An object that can write the output of the page.</returns>
+      <param name="path">The path of the page to render.</param>
+      <param name="data">Data to pass to the page.</param>
+    </member>
+    <member name="P:System.Web.WebPages.WebPage.Validation">
+      <summary>Gets the validation helper for the current page context.</summary>
+      <returns>The validation helper.</returns>
+    </member>
+    <member name="T:System.Web.WebPages.WebPageBase">
+      <summary>Serves as the base class for classes that represent an ASP.NET Razor page.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.#ctor">
+      <summary>Initializes the <see cref="T:System.Web.WebPages.WebPageBase" /> class for use by an inherited class instance. This constructor can only be called by an inherited class.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.ConfigurePage(System.Web.WebPages.WebPageBase)">
+      <summary>When overridden in a derived class, configures the current web page based on the configuration of the parent web page.</summary>
+      <param name="parentPage">The parent page from which to read configuration information.</param>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.CreateInstanceFromVirtualPath(System.String)">
+      <summary>Creates a new instance of the <see cref="T:System.Web.WebPages.WebPageBase" /> class by using the specified virtual path.</summary>
+      <returns>The new <see cref="T:System.Web.WebPages.WebPageBase" /> object.</returns>
+      <param name="virtualPath">The virtual path to use to create the instance.</param>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.CreatePageFromVirtualPath(System.String,System.Web.HttpContextBase,System.Func{System.String,System.Boolean},System.Web.WebPages.DisplayModeProvider,System.Web.WebPages.IDisplayMode)">
+      <summary>Attempts to create a WebPageBase instance from a virtualPath and wraps complex compiler exceptions with simpler messages</summary>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.DefineSection(System.String,System.Web.WebPages.SectionWriter)">
+      <summary>Called by content pages to create named content sections.</summary>
+      <param name="name">The name of the section to create.</param>
+      <param name="action">The type of action to take with the new section.</param>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.ExecutePageHierarchy">
+      <summary>Executes the code in a set of dependent web pages.</summary>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.ExecutePageHierarchy(System.Web.WebPages.WebPageContext,System.IO.TextWriter)">
+      <summary>Executes the code in a set of dependent web pages by using the specified parameters.</summary>
+      <param name="pageContext">The context data for the page.</param>
+      <param name="writer">The writer to use to write the executed HTML.</param>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.ExecutePageHierarchy(System.Web.WebPages.WebPageContext,System.IO.TextWriter,System.Web.WebPages.WebPageRenderingBase)">
+      <summary>Executes the code in a set of dependent web pages by using the specified context, writer, and start page.</summary>
+      <param name="pageContext">The context data for the page.</param>
+      <param name="writer">The writer to use to write the executed HTML.</param>
+      <param name="startPage">The page to start execution in the page hierarchy.</param>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.GetOutputWriter">
+      <summary>Returns the text writer instance that is used to render the page.</summary>
+      <returns>The text writer.</returns>
+    </member>
+    <member name="M:System.Web.WebPages.WebPageBase.InitializePage">
+      <summary>Initializes the current page.</summary>
+    </member>
+    <member name="M:System.We

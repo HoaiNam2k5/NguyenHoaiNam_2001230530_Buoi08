@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BTTL_03.Models.TBL_EMPLOYEE>
+@{
+    var departments = ViewBag.Departments as List<BTTL_03.Models.TBL_DEPARMENT>;
+}
+
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="list-group">
+            <a href="@Url.Action("Slidebar", "Home")" class="list-group-item list-group-item-action active">
+                Tất cả phòng ban
+            </a>
+            @foreach (var d in departments)
+            {
+                <a href="@Url.Action("Slidebar", "Home", new { deptId = d.Deptld })" class="list-group-item list-group-item-action">
+                    @d.Name
+                </a>
+            }
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <h3>Danh sách nhân viên</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Ảnh</th>
+                    <th>Tên</th>
+                    <th>Giới tính</th>
+                    <th>Thành phố</th>
+                    <th>Phòng ban</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var nv in Model)
+                {
+                    <tr>
+                        <td><img src="@Url.Content(nv.ImgFace)" width="80" /></td>
+                        <td>@nv.Name</td>
+                        <td>@nv.Gender</td>
+                        <td>@nv.City</td>
+                        <td>@(nv.TBL_DEPARMENT != null ? nv.TBL_DEPARMENT.Name : "")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BTTL_03.Models.TBL_EMPLOYEE>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Danh sách Nhân Viên";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+<div style="margin-top:60px;" class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary">Danh sách Nhân Viên</h2>
+        <a href="@Url.Action("Create")" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Thêm Nhân Viên
+        </a>
+    </div>
+
+    <div class="table-responsive shadow rounded">
+        <table class="table table-hover align-middle">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th>Mã Nhân Viên</th>
+                    <th>Họ Và tên</th>
+                    <th>Giới Tính</th>
+                    <th>Thành Phố</th>
+                    <th>Ảnh</th>
+                   <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="fw-semibold">@Html.DisplayFor(m => item.Id)</td>
+                        <td>@Html.DisplayFor(m => item.Name)</td>
+                        <td>@Html.DisplayFor(m => item.Gender)</td>
+                        <td>@Html.DisplayFor(m => item.City)</td>
+                        <td class="text-center">
+                            <img src="@Url.Content(item.ImgFace)" alt="Ảnh bìa" class="rounded shadow-sm" style="width:80px; height:110px; object-fit:cover;" />
+                        </td>
+
+                        <td class="text-center">
+                            <!-- Nút sửa -->
+                            <a href="@Url.Action("EditNV", "Home", new { id = item.Id })" class="btn btn-sm btn-outline-primary me-1">
+                                <i class="bi bi-pencil-square"></i> Sửa
+                            </a>
+
+
+                            <!-- Nút xem -->
+                            <a href="@Url.Action("DetailStaff", "Home", new { id = item.Id })"
+                               class="btn btn-sm btn-info me-1 text-white">
+                                <i class="bi bi-eye"></i> Xem
+                            </a>
+
+                            <!-- Nút xóa -->
+                            <a href="@Url.Action("XoaStaff", "Home", new { id = item.Id})"
+                               class="btn btn-sm btn-outline-danger"
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');">
+                                <i class="bi bi-trash"></i> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
